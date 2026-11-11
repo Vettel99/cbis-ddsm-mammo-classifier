@@ -1,0 +1,25 @@
+# Data and caches — never committed
+data/
+_drive/
+_local/
+*.dcm
+*.png
+!results/figures/*.png
+*.tar
+*.tar.gz
+# Checkpoints / weights
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+# Secrets
+.env
+kaggle.json
+# OS
+.DS_Store

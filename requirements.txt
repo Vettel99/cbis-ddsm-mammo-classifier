@@ -1,0 +1,14 @@
+# Placeholder ranges. Replace with exact versions printed by notebook milestone 2 on the Colab A100 run (PRD §8).
+# torch / torchvision: use the versions shipped with the Colab image.
+idc-index>=0.13
+pydicom>=3.0
+pandas>=2.0
+numpy>=1.26
+psutil
+requests
+opencv-python-headless
+scikit-learn
+matplotlib
+timm
+albumentations
+scipy

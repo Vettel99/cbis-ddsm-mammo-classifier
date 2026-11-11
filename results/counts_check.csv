@@ -1,0 +1,15 @@
+fact,expected,observed,match,PRD source,how computed
+"Full-mammogram images, total",3103,3061,❌,Petrini 2025 Tab. 1,"unique (split, base_pid, side, view) over the 4 CSVs"
+"Full-mammogram images, official train (train+val)",2458,2420,❌,Petrini 2025 Tab. 1,"as above, train CSVs"
+"Full-mammogram images, official test",645,641,❌,Petrini 2025 Tab. 1,"as above, test CSVs"
+Real participants,1566,1566,✅,TCIA,unique base patient ID (P_xxxxx) over the 4 CSVs
+Test share of cases (abnormalities),0.2,0.197,✅,TCIA ('about 20%'),test abnormality rows / all rows; tolerance ±0.03
+Pathology classes,"['BENIGN', 'BENIGN_WITHOUT_CALLBACK', 'MALIGNANT']","['BENIGN', 'BENIGN_WITHOUT_CALLBACK', 'MALIGNANT']",✅,CBIS-DDSM thesis,unique pathology values
+Metadata CSV files present,"['calc_case_description_test_set.csv', 'calc_case_description_train_set.csv', 'mass_case_description_test_set.csv', 'mass_case_description_train_set.csv']","['calc_case_description_test_set.csv', 'calc_case_description_train_set.csv', 'mass_case_description_test_set.csv', 'mass_case_description_train_set.csv']",✅,TCIA,downloaded file names
+DICOM 'subjects' (PatientID values),6671,6671,✅,TCIA,"IDC index, whole collection"
+Images (DICOM instances) in collection,10239,10239,✅,TCIA,IDC index
+Series in collection,6775,6775,✅,TCIA,IDC index
+"Collection size, GB",163.6,163.5,✅,TCIA,IDC series_size_MB / 1000; tolerance ±2%
+Full-image DICOM series referenced by CSVs,3103,3103,✅,Petrini 2025 Tab. 1 (images),distinct SeriesInstanceUID in 'image file path'
+Referenced full-image series with malformed IDC PatientID,0,246,❌,not in PRD (data-quality check),"known IDC defect, see 4.3; matched by UID instead"
+Train images matched to a downloaded DICOM (%),100.0,not run,n/a,PRD §5.4,train images in the DICOM inventory / train images (test: checked at final evaluation)
