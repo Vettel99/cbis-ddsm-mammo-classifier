@@ -1,3 +1,9 @@
+**In plain words:**
+
+- On **641 mammograms the model never saw during development**, it ranks a randomly chosen malignant image above a randomly chosen benign one **82% of the time** (test AUC 0.817, 95% CI 0.774–0.858).
+- At the decision threshold fixed before testing, it flags **65% of malignant images** and correctly clears **82% of benign ones**.
+- During development (5-fold patient-grouped cross-validation) it scored AUC **0.850 ± 0.025**; the stretch target of 0.90 was **not** reached.
+
 | Metric | Split | Value | 95% CI |
 |---|---|---|---|
 | `cv_auc_mean` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.8500 ± 0.0246 | — |

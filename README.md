@@ -14,6 +14,12 @@ validation target was **not** reached; see the results below.
 ## Results
 
 <!-- RESULTS:START -->
+**In plain words:**
+
+- On **641 mammograms the model never saw during development**, it ranks a randomly chosen malignant image above a randomly chosen benign one **82% of the time** (test AUC 0.817, 95% CI 0.774–0.858).
+- At the decision threshold fixed before testing, it flags **65% of malignant images** and correctly clears **82% of benign ones**.
+- During development (5-fold patient-grouped cross-validation) it scored AUC **0.850 ± 0.025**; the stretch target of 0.90 was **not** reached.
+
 | Metric | Split | Value | 95% CI |
 |---|---|---|---|
 | `cv_auc_mean` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.8500 ± 0.0246 | — |
@@ -36,6 +42,23 @@ Configuration: `s4_cv_s3_tta_hflip` (train hash `1e9764457296`); 11 configuratio
 
 *Generated from `results/metrics.json` (2026-11-12T17:45:48Z) by notebook milestone 17.*
 <!-- RESULTS:END -->
+
+### What the model does on the test set
+
+![Official test set: ROC curve, precision-recall curve, confusion matrix at the pre-set threshold, and calibration](results/figures/test_evaluation.png)
+
+*Left to right: ROC curve with its 95% confidence band, precision–recall curve, confusion matrix at the threshold fixed
+on validation data, and a calibration plot (how well predicted probabilities match observed rates).*
+
+### Where the model looks (Grad-CAM)
+
+![Grad-CAM heatmaps on test mammograms: correct malignant calls, false alarms and missed cancers](results/figures/gradcam_test.png)
+
+*Each pair shows a test mammogram and the model's attention heatmap. Green outlines mark the lesion annotated in the
+dataset. Rows, top to bottom: malignant lesions correctly flagged, benign lesions wrongly flagged, and malignant
+lesions missed. On the test set, missed cancers are more frequent for calcifications than for masses, and in denser
+breasts (per-subgroup rates in [`results/error_rates_test.csv`](results/error_rates_test.csv)). More figures, including
+error examples and training curves, are in [`results/figures/`](results/figures/).*
 
 ### Comparison with published work
 
