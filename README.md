@@ -2,7 +2,7 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Vettel99/cbis-ddsm-mammo-classifier/blob/main/notebooks/cbis_ddsm_whole_image_classifier.ipynb)
 
-Single-view, whole-mammogram **benign vs malignant** classifier trained on CBIS-DDSM on one Colab A100 GPU,
+Single-view, whole-mammogram **benign vs malignant** classifier trained on CBIS-DDSM on one Colab GPU (an NVIDIA L4 for the published results),
 with patient-grouped validation and a single, locked evaluation on the official test split.
 
 > ⚠️ **Not for clinical use.** This is a portfolio and research project. It makes no clinical claims.
@@ -82,7 +82,9 @@ Produced by notebook milestones 4–5 (`results/counts_check.csv`); these are da
 
 ## Reproduce
 
-1. Open the notebook in Colab with the badge above and pick an **A100** runtime.
+1. Open the notebook in Colab with the badge above and pick a GPU runtime. An **A100** is fastest; the published results
+   were produced on an **L4** (GPU-minutes for every run are logged in `results/experiments.csv`). On a
+   non-A100 GPU the notebook prints a warning and carries on.
 2. Run all. The notebook mounts Drive, downloads the metadata CSVs from TCIA and the full-mammogram DICOMs (~95 GB)
    from NCI Imaging Data Commons with `idc-index`, and caches everything to Drive.
 3. It stops at each review gate; set the gate flag in the Config cell after reviewing and re-run.

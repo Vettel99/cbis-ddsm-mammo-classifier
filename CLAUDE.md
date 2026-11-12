@@ -47,12 +47,10 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
   - Grad-CAM downloads only the ROI series of the images shown.
   - Milestone 17 writes the README block between the `<!-- RESULTS:START/END -->` markers, plus
     `requirements.lock.txt`, the fp16 weights and a model card under `export/`.
-- Milestones 13–18 were smoke-tested locally on the CPU subset. Milestone 14 was exercised only on a stand-in built
-  from TRAIN fold-0 images (`runsmoke13.py fakefinal`); no test pixels were read. The live Colab copy predates
-  13–18, so CV must be run from the repo notebook (it reuses all cached runs).
+- Milestones 13–18 were smoke-tested locally on the CPU subset before running for real on the L4 (2026-11-12).
 - 2026-11-10 Colab run (L4; no A100 was available): milestones 0–8 completed on real data — 2,458 train series
   downloaded, 2,420 PNGs cached to Drive (6.7 GB tar + marker), folds written. Training stopped at Stage 0 by the
-  `allow_non_a100_training` guard. Stage 0 needs an A100 runtime; it reuses the Drive cache.
+  `allow_non_a100_training` guard (since 2026-11-13 the default is True: warn and carry on, per PRD §8).
 - 2026-11-11 Stage 0 ran on the L4 (`allow_non_a100_training = True` in the Colab copy only): fold-0 val AUC
   0.5433 [0.4774, 0.6070], best epoch 4, 3.8 GPU-min, batch 16 × 1. Near chance (the CI includes 0.5), and train loss
   only fell from 0.6916 to 0.6669. Gate 2 NOT approved.
@@ -68,7 +66,7 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
   regularisation is a Stage 3 lead.
 - `s1_effb3_1536` (1536×1184): fold-0 val AUC 0.8154 [0.7714, 0.8561], best epoch 11 of 20, 92.1 GPU-min, batch 6 ×
   accum 3, 4.6 min/epoch. Kept by the selection rule (> 0.8080), but the gap is within noise. Stage 1 done
-  2026-11-11; Stage 2 skipped (`RUN_PATCH_PRETRAIN = False`). The user chose a prioritised Stage 3 subset (`STAGE3_RUN` in
+  2026-11-11; Stage 2 deferred (run later as an ablation, below). The user chose a prioritised Stage 3 subset (`STAGE3_RUN` in
   the Stage 3 cell): ema, wd_1e-2, pool_gem, pool_attn, bb_effb4, bb_convnext_tiny, tta_hflip. Other tags stay in
   `STAGE3` for later. `s3_ema` started on the L4 2026-11-11 (17:31 UTC), at 1536×1184, batch 6 × 3, 4.6 min/epoch.
 - Stage 3 subset finished on the L4 2026-11-12 04:15 UTC (from Drive `results/experiments.csv`; fold-0 val AUC):
@@ -91,8 +89,9 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
   `itertuples()` namedtuples keep `r.col`. The Drive mount waits 15 min (`timeout_ms`) for the consent popup.
 - Experiment bookkeeping: `Exp` dataclass; checkpoints keyed by `train_hash` (eval-only fields like `tta_hflip`
   reuse the parent's weights); finished `(exp_hash, fold)` rows in `experiments.csv` are never re-run.
-- Milestones 6–12 were smoke-tested locally on a 20-patient real subset on CPU with shrunk models; nothing has run on
-  a GPU yet (batch probe, bf16, torch.compile check, real training times are untested).
+- Milestones 6–12 were smoke-tested locally on a 20-patient real subset on CPU with shrunk models, then ran on the L4.
+- Not yet verified: one uninterrupted "Run all" of the repo notebook (the real run went cell by cell across several
+  Colab sessions, partly via exec payloads). The repo notebook has no saved outputs; `results/` holds every number.
 - Findings from the first metadata run (IDC data v25, idc-index 0.13.4) — see the README "Data notes" section.
 
 ## Commits
