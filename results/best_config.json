@@ -1,0 +1,33 @@
+{
+  "name": "s3_tta_hflip",
+  "stage": "3",
+  "hypothesis": "Horizontal-flip TTA (evaluation only; reuses the trained checkpoint).",
+  "parent": "s3_wd_1e-2",
+  "backbone": "efficientnet_b3",
+  "image_size": [
+    1536,
+    1184
+  ],
+  "input": "cropped",
+  "init": "imagenet",
+  "pool": "avg",
+  "drop_rate": 0.3,
+  "loss": "bce",
+  "pos_weight": false,
+  "focal_gamma": 2.0,
+  "sampler": "none",
+  "aug": true,
+  "epochs": 30,
+  "patience": 8,
+  "lr_backbone": 0.0001,
+  "lr_head": 0.001,
+  "weight_decay": 0.01,
+  "warmup_epochs": 1.0,
+  "effective_batch": 16,
+  "max_batch": 64,
+  "ema": false,
+  "ema_decay": 0.999,
+  "compile": false,
+  "tta_hflip": true,
+  "seed": 42
+}

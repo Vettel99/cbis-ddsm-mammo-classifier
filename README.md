@@ -7,15 +7,34 @@ with patient-grouped validation and a single, locked evaluation on the official 
 
 > ⚠️ **Not for clinical use.** This is a portfolio and research project. It makes no clinical claims.
 
-**Status:** milestones 0–18 implemented — the data pipeline, the fold-0 experiments (Stages 0–3), 5-fold
-cross-validation, the review-gated one-time test evaluation, Grad-CAM, error analysis and export. Review gates 1 and 2
-are approved. Fold-0 experiments are running on Colab; cross-validation and the test evaluation have not run yet, so
-there are no headline results.
+**Status:** complete. All milestones (0–18) ran on Colab (an L4 GPU; no A100 was available). Review gates 1–3 were
+approved, and the official test split was evaluated once, from a frozen and hashed 5-fold ensemble. The 0.90
+validation target was **not** reached; see the results below.
 
 ## Results
 
 <!-- RESULTS:START -->
-*Generated from `results/metrics.json` by notebook milestone 17 — not yet available.*
+| Metric | Split | Value | 95% CI |
+|---|---|---|---|
+| `cv_auc_mean` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.8500 ± 0.0246 | — |
+| `cv_auc_mean_excluding_selection_fold` | 5-fold patient-grouped CV in official train (out-of-fold), folds ≠ 0 | 0.8527 | — |
+| `cv_auc_pooled_oof` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.8434 | [0.8255, 0.8615] |
+| `cv_pr_auc_pooled_oof` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.8328 | — |
+| `cv_sens_at_spec80` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.7286 | — |
+| `cv_sens_at_spec90` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.5991 | — |
+| `cv_spec_at_sens90` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.5174 | — |
+| `cv_brier_calibrated` | 5-fold patient-grouped CV in official train (out-of-fold) | 0.1586 | — |
+| `test_auc_ensemble` | official test (641 images, 5-model ensemble) | 0.8170 | [0.7745, 0.8585] |
+| `test_auc_single_model_mean` | official test, each fold model alone | 0.8003 ± 0.0100 | — |
+| `test_pr_auc_ensemble` | official test (641 images, 5-model ensemble) | 0.7927 | — |
+| `test_sens_at_oof_threshold` | official test (641 images, 5-model ensemble) | 0.6450 | — |
+| `test_spec_at_oof_threshold` | official test (641 images, 5-model ensemble) | 0.8206 | — |
+| `test_sens_at_spec90` | official test (641 images, 5-model ensemble) | 0.5725 | — |
+| `test_brier` | official test (641 images, 5-model ensemble) | 0.1672 | — |
+
+Configuration: `s4_cv_s3_tta_hflip` (train hash `1e9764457296`); 11 configurations evaluated on validation (`experiments.csv`). Fold 0 was the selection fold.
+
+*Generated from `results/metrics.json` (2026-11-12T17:45:48Z) by notebook milestone 17.*
 <!-- RESULTS:END -->
 
 ### Comparison with published work
@@ -29,7 +48,7 @@ Numbers from different splits are **not comparable**; the split column is there 
 | Petrini et al. 2025 | Official (645 test images) | EfficientNet-B3, single view | 0.8325 ± 0.0171 |
 | Petrini et al. 2025 | Official | EfficientNet-B3, two views | 0.8643 ± 0.0241 |
 | Wei et al. (via Petrini) | Official / random | 4-model ensemble + TTA | 0.8313 / 0.9427 |
-| **This project** | 5-fold CV in official train / official test | — | *pending* |
+| **This project** | 5-fold CV in official train / official test | EfficientNet-B3, single view, 1536×1184, 5-model ensemble + hflip TTA | `cv_auc_mean` / `test_auc_ensemble` in the Results table |
 
 **Expectation.** Based on the results above, a single-view model on the official test split will most likely land in the
 low-to-mid 0.80s. The 0.90 target applies to patient-grouped validation and is a stretch goal. Anything well above the

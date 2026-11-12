@@ -1,0 +1,6 @@
+{
+  "eager_s_per_img": 0.07504320939381917,
+  "compiled_s_per_img": 0.07391269207000732,
+  "use_compile": false,
+  "gpu": "NVIDIA L4"
+}

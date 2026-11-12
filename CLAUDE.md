@@ -38,8 +38,7 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
 ## Status
 
 - Milestones 0–18 implemented (13–18 written 2026-11-11). Gate 1 approved 2026-11-10, pinned to
-  `GATE1_REVIEWED_MISMATCHES`. Gate 2 approved 2026-11-11. **Next: finish Stage 3 on fold 0, then 5-fold CV
-  (`RUN_CV = True`) and gate 3.**
+  `GATE1_REVIEWED_MISMATCHES`. Gate 2 approved 2026-11-11. Gate 3 approved 2026-11-12 (`GATE3_PRE_TEST_APPROVED` and `FINAL_EVAL` are True; the test split has been evaluated, so `test_predictions.csv` is only ever re-scored). **Project complete; next: create the GitHub repo, set the badge's `GITHUB_USER`, push.**
 - Milestones 13–18:
   - The CV runs `FINAL = replace(BEST, name="s4_cv_…")`. Fold 0 is reused from the identical exp_hash.
   - The threshold (Youden) and the temperature are fitted on OOF only. `frozen_model.json` hashes the 5 fold `best.pt`
@@ -72,6 +71,22 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
   2026-11-11; Stage 2 skipped (`RUN_PATCH_PRETRAIN = False`). The user chose a prioritised Stage 3 subset (`STAGE3_RUN` in
   the Stage 3 cell): ema, wd_1e-2, pool_gem, pool_attn, bb_effb4, bb_convnext_tiny, tta_hflip. Other tags stay in
   `STAGE3` for later. `s3_ema` started on the L4 2026-11-11 (17:31 UTC), at 1536×1184, batch 6 × 3, 4.6 min/epoch.
+- Stage 3 subset finished on the L4 2026-11-12 04:15 UTC (from Drive `results/experiments.csv`; fold-0 val AUC):
+  ema 0.7989 (dropped); **wd_1e-2 0.8373 [0.7932, 0.8757] kept**; pool_gem 0.8302, pool_attn 0.8354, bb_effb4 0.8268
+  (all dropped); bb_convnext_tiny 0.4999 (failed to train: best epoch 4, early stop at 13 — not a fair test);
+  **tta_hflip 0.8392 [0.7943, 0.8780] kept** (eval-only on the wd_1e-2 weights). BEST = s3_tta_hflip. The Colab VM
+  was then recycled (Drive unmounted); nothing was lost, since the results are on Drive.
+- 5-fold CV (`s4_cv_s3_tta_hflip`, L4, 2026-11-12 07:04–~13:20 UTC; from Drive `results/metrics.json`): per-fold AUC
+  0.8392 / 0.8929 / 0.8327 / 0.8485 / 0.8369; mean 0.8500 ± 0.0246 SD (0.8527 excluding fold 0); pooled OOF AUC
+  0.8434 [0.8255, 0.8615] (n = 2,356, 1,065 malignant); PR-AUC 0.8328; sens@spec90 0.5991; T = 1.2543, Youden
+  threshold 0.5017, calibrated Brier 0.1586. 0.90 missed.
+- Stage 2 ablation (`s2_patchinit_s1_effb3_1536`, run after the CV, ablation row only, never replaces BEST): fold-0 AUC
+  0.8358 [0.7899, 0.8778] vs its parent s1_effb3_1536 0.8154 (Δ +0.0204), best epoch 7 of 16, 74.2 GPU-min.
+- Final test (2026-11-12 ~17:30–17:45 UTC, L4; from `results/metrics.json`): 5-model ensemble AUC 0.8170
+  [0.7745, 0.8585] (641 images, 262 malignant); single models 0.8003 ± 0.0100; PR-AUC 0.7927; at the OOF threshold
+  sens 0.645 / spec 0.821; sens@spec90 0.5725; Brier 0.1672. Milestones 15–17 ran in the same session. `results/`
+  and `export/` (model card, config; fp16 weights stay on Drive) were copied into the repo from Drive. The live
+  Colab copy ran the repo cells via exec payloads, so its saved outputs are not the repo notebook's.
 - Colab ships pandas 2.2.x: read row values as `r["col"]` on Series rows (`r.view` is a pandas method there);
   `itertuples()` namedtuples keep `r.col`. The Drive mount waits 15 min (`timeout_ms`) for the consent popup.
 - Experiment bookkeeping: `Exp` dataclass; checkpoints keyed by `train_hash` (eval-only fields like `tta_hflip`

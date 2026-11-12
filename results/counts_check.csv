@@ -12,4 +12,4 @@ Series in collection,6775,6775,✅,TCIA,IDC index
 "Collection size, GB",163.6,163.5,✅,TCIA,IDC series_size_MB / 1000; tolerance ±2%
 Full-image DICOM series referenced by CSVs,3103,3103,✅,Petrini 2025 Tab. 1 (images),distinct SeriesInstanceUID in 'image file path'
 Referenced full-image series with malformed IDC PatientID,0,246,❌,not in PRD (data-quality check),"known IDC defect, see 4.3; matched by UID instead"
-Train images matched to a downloaded DICOM (%),100.0,not run,n/a,PRD §5.4,train images in the DICOM inventory / train images (test: checked at final evaluation)
+Train images matched to a downloaded DICOM (%),100.0,100.0,✅,PRD §5.4,train images in the DICOM inventory / train images (test: checked at final evaluation)

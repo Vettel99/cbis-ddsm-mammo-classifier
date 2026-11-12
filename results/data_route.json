@@ -1,0 +1,6 @@
+{
+  "route": "idc",
+  "idc_collection_id": "cbis_ddsm",
+  "idc_data_version": "v25",
+  "idc_index_version": "0.13.4"
+}

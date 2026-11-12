@@ -1,0 +1,44 @@
+{
+  "exp": {
+    "name": "s4_cv_s3_tta_hflip",
+    "stage": "4",
+    "hypothesis": "Chosen configuration on all 5 folds; headline validation metric (PRD \u00a76).",
+    "parent": "s3_tta_hflip",
+    "backbone": "efficientnet_b3",
+    "image_size": [
+      1536,
+      1184
+    ],
+    "input": "cropped",
+    "init": "imagenet",
+    "pool": "avg",
+    "drop_rate": 0.3,
+    "loss": "bce",
+    "pos_weight": false,
+    "focal_gamma": 2.0,
+    "sampler": "none",
+    "aug": true,
+    "epochs": 30,
+    "patience": 8,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.01,
+    "warmup_epochs": 1.0,
+    "effective_batch": 16,
+    "max_batch": 64,
+    "ema": false,
+    "ema_decay": 0.999,
+    "compile": false,
+    "tta_hflip": true,
+    "seed": 42
+  },
+  "threshold": 0.5017023620340758,
+  "temperature": 1.2543051840557675,
+  "source_sha256": {
+    "0": "68c44f5264a65df2a94a14d9011844cf8d288b8ef119d316d9466f65f49c90dc",
+    "1": "5a11ac30aefba574eabc898077e61c1d877cdf1fbcb37901a1da2e4172d03ef5",
+    "2": "6d384299d811d5c594ca9b031efe468b8cfa58feecfc1fde9bf34c0a31dde5d0",
+    "3": "1cdd5ae766b9261fd0b9bc8beb55a2b48f0c5944684f8c73d75c30bbfd7d3d8c",
+    "4": "8f56478fd7947d632a2a447b559a8c604292253d17b5c44d7f194f02a5861fd9"
+  }
+}

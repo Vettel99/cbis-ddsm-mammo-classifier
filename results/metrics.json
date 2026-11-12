@@ -1,0 +1,597 @@
+{
+  "metrics": {
+    "cv_auc_mean": {
+      "value": 0.8500364739126361,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null,
+      "sd": 0.02463828535262323,
+      "n_folds": 5
+    },
+    "cv_auc_mean_excluding_selection_fold": {
+      "value": 0.8527391035741723,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold), folds \u2260 0",
+      "ci95": null
+    },
+    "cv_auc_pooled_oof": {
+      "value": 0.8433630442609179,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": [
+        0.8255121160105282,
+        0.8614676955284988
+      ],
+      "n": 2356,
+      "n_pos": 1065
+    },
+    "cv_pr_auc_pooled_oof": {
+      "value": 0.8328407469181589,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null
+    },
+    "cv_sens_at_spec80": {
+      "value": 0.7286384976525822,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null
+    },
+    "cv_sens_at_spec90": {
+      "value": 0.5990610328638498,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null
+    },
+    "cv_spec_at_sens90": {
+      "value": 0.5174283501161889,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null
+    },
+    "cv_brier_calibrated": {
+      "value": 0.15855318696377968,
+      "split": "5-fold patient-grouped CV in official train (out-of-fold)",
+      "ci95": null
+    },
+    "test_auc_ensemble": {
+      "value": 0.8170456605369695,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": [
+        0.7744931858533205,
+        0.8584617768575452
+      ],
+      "n": 641,
+      "n_pos": 262
+    },
+    "test_auc_single_model_mean": {
+      "value": 0.8002809724264335,
+      "split": "official test, each fold model alone",
+      "ci95": null,
+      "sd": 0.00997261575239945
+    },
+    "test_pr_auc_ensemble": {
+      "value": 0.7926568948818109,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": null
+    },
+    "test_sens_at_oof_threshold": {
+      "value": 0.6450381679389313,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": null
+    },
+    "test_spec_at_oof_threshold": {
+      "value": 0.820580474934037,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": null
+    },
+    "test_sens_at_spec90": {
+      "value": 0.5725190839694656,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": null
+    },
+    "test_brier": {
+      "value": 0.16721349560311582,
+      "split": "official test (641 images, 5-model ensemble)",
+      "ci95": null
+    }
+  },
+  "cross_validation": {
+    "exp": "s4_cv_s3_tta_hflip",
+    "train_hash": "1e9764457296",
+    "exp_hash": "9275912885aa",
+    "config": {
+      "name": "s4_cv_s3_tta_hflip",
+      "stage": "4",
+      "hypothesis": "Chosen configuration on all 5 folds; headline validation metric (PRD \u00a76).",
+      "parent": "s3_tta_hflip",
+      "backbone": "efficientnet_b3",
+      "image_size": [
+        1536,
+        1184
+      ],
+      "input": "cropped",
+      "init": "imagenet",
+      "pool": "avg",
+      "drop_rate": 0.3,
+      "loss": "bce",
+      "pos_weight": false,
+      "focal_gamma": 2.0,
+      "sampler": "none",
+      "aug": true,
+      "epochs": 30,
+      "patience": 8,
+      "lr_backbone": 0.0001,
+      "lr_head": 0.001,
+      "weight_decay": 0.01,
+      "warmup_epochs": 1.0,
+      "effective_batch": 16,
+      "max_batch": 64,
+      "ema": false,
+      "ema_decay": 0.999,
+      "compile": false,
+      "tta_hflip": true,
+      "seed": 42
+    },
+    "per_fold": [
+      {
+        "fold": 0,
+        "val_auc": 0.8392259552664915,
+        "ci_lo": 0.7942951468344774,
+        "ci_hi": 0.8780282887090495,
+        "n": 460,
+        "best_epoch": 10,
+        "gpu_minutes": 87.31,
+        "exp": "s3_tta_hflip"
+      },
+      {
+        "fold": 1,
+        "val_auc": 0.8928901657750479,
+        "ci_lo": 0.8572302508458977,
+        "ci_hi": 0.92543311094615,
+        "n": 500,
+        "best_epoch": 6,
+        "gpu_minutes": 70.49,
+        "exp": "s4_cv_s3_tta_hflip"
+      },
+      {
+        "fold": 2,
+        "val_auc": 0.8327433951247993,
+        "ci_lo": 0.7874286187481434,
+        "ci_hi": 0.874750732130118,
+        "n": 469,
+        "best_epoch": 13,
+        "gpu_minutes": 101.5,
+        "exp": "s4_cv_s3_tta_hflip"
+      },
+      {
+        "fold": 3,
+        "val_auc": 0.848451115120341,
+        "ci_lo": 0.8090267723303725,
+        "ci_hi": 0.8860535372582095,
+        "n": 457,
+        "best_epoch": 9,
+        "gpu_minutes": 83.33,
+        "exp": "s4_cv_s3_tta_hflip"
+      },
+      {
+        "fold": 4,
+        "val_auc": 0.8368717382765005,
+        "ci_lo": 0.7964581160947717,
+        "ci_hi": 0.8777369857439634,
+        "n": 470,
+        "best_epoch": 5,
+        "gpu_minutes": 64.51,
+        "exp": "s4_cv_s3_tta_hflip"
+      }
+    ],
+    "mean_auc": 0.8500364739126361,
+    "sd_auc": 0.02463828535262323,
+    "mean_auc_excluding_selection_fold": 0.8527391035741723,
+    "pooled": {
+      "auc": 0.8433630442609179,
+      "auc_ci95": [
+        0.8255121160105282,
+        0.8614676955284988
+      ],
+      "pr_auc": 0.8328407469181589,
+      "sens_at_spec80": 0.7286384976525822,
+      "sens_at_spec90": 0.5990610328638498,
+      "spec_at_sens90": 0.5174283501161889,
+      "n": 2356,
+      "n_pos": 1065,
+      "n_patients": 1217
+    },
+    "temperature": 1.2543051840557675,
+    "threshold": 0.5017023620340758,
+    "threshold_rule": "Youden J on calibrated OOF",
+    "oof_at_threshold": {
+      "threshold": 0.5017023620340758,
+      "sensitivity": 0.7051643192488263,
+      "specificity": 0.8303640588690937,
+      "ppv": 0.7742268041237114,
+      "npv": 0.7734487734487735,
+      "tp": 751,
+      "fp": 219,
+      "tn": 1072,
+      "fn": 314
+    },
+    "brier_raw": 0.1588582336669009,
+    "brier_calibrated": 0.15855318696377968,
+    "selection_fold": 0,
+    "n_configurations_evaluated": 11
+  },
+  "updated_utc": "2026-11-12T17:45:48Z",
+  "test": {
+    "ensemble": {
+      "auc": 0.8170456605369695,
+      "auc_ci95": [
+        0.7744931858533205,
+        0.8584617768575452
+      ],
+      "pr_auc": 0.7926568948818109,
+      "sens_at_spec80": 0.6641221374045801,
+      "sens_at_spec90": 0.5725190839694656,
+      "spec_at_sens90": 0.4670184696569921,
+      "n": 641,
+      "n_pos": 262,
+      "n_patients": 349
+    },
+    "single_model_aucs": [
+      0.7943160990150859,
+      0.8124433523333803,
+      0.8097645471207879,
+      0.7915970110173417,
+      0.793283852645572
+    ],
+    "at_threshold": {
+      "threshold": 0.5017023620340758,
+      "sensitivity": 0.6450381679389313,
+      "specificity": 0.820580474934037,
+      "ppv": 0.7130801687763713,
+      "npv": 0.7698019801980198,
+      "tp": 169,
+      "fp": 68,
+      "tn": 311,
+      "fn": 93
+    },
+    "brier": 0.16721349560311582
+  },
+  "error_analysis": {
+    "oof": {
+      "n_fp": 219,
+      "n_fn": 314,
+      "n": 2356,
+      "rates": [
+        {
+          "subgroup": "abn_type",
+          "value": "both",
+          "n": 38,
+          "malignant": 21,
+          "fn_rate": 0.14285714285714285,
+          "fp_rate": 0.11764705882352941
+        },
+        {
+          "subgroup": "abn_type",
+          "value": "calc",
+          "n": 1150,
+          "malignant": 468,
+          "fn_rate": 0.32905982905982906,
+          "fp_rate": 0.17008797653958943
+        },
+        {
+          "subgroup": "abn_type",
+          "value": "mass",
+          "n": 1168,
+          "malignant": 576,
+          "fn_rate": 0.2725694444444444,
+          "fp_rate": 0.17060810810810811
+        },
+        {
+          "subgroup": "view",
+          "value": "CC",
+          "n": 1115,
+          "malignant": 507,
+          "fn_rate": 0.28402366863905326,
+          "fp_rate": 0.15296052631578946
+        },
+        {
+          "subgroup": "view",
+          "value": "MLO",
+          "n": 1241,
+          "malignant": 558,
+          "fn_rate": 0.3046594982078853,
+          "fp_rate": 0.18448023426061494
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "1",
+          "n": 344,
+          "malignant": 157,
+          "fn_rate": 0.2229299363057325,
+          "fp_rate": 0.1711229946524064
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "2",
+          "n": 904,
+          "malignant": 415,
+          "fn_rate": 0.2891566265060241,
+          "fp_rate": 0.1656441717791411
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "3",
+          "n": 718,
+          "malignant": 333,
+          "fn_rate": 0.2972972972972973,
+          "fp_rate": 0.17662337662337663
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "4",
+          "n": 390,
+          "malignant": 160,
+          "fn_rate": 0.375,
+          "fp_rate": 0.16521739130434782
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "0",
+          "n": 190,
+          "malignant": 50,
+          "fn_rate": 0.46,
+          "fp_rate": 0.24285714285714285
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "1",
+          "n": 1,
+          "malignant": 1,
+          "fn_rate": 1.0,
+          "fp_rate": NaN
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "2",
+          "n": 271,
+          "malignant": 1,
+          "fn_rate": 0.0,
+          "fp_rate": 0.08148148148148149
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "3",
+          "n": 313,
+          "malignant": 75,
+          "fn_rate": 0.4,
+          "fp_rate": 0.13025210084033614
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "4",
+          "n": 1167,
+          "malignant": 530,
+          "fn_rate": 0.37924528301886795,
+          "fp_rate": 0.20251177394034536
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "5",
+          "n": 414,
+          "malignant": 408,
+          "fn_rate": 0.14460784313725492,
+          "fp_rate": 0.5
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "1",
+          "n": 132,
+          "malignant": 79,
+          "fn_rate": 0.5443037974683544,
+          "fp_rate": 0.20754716981132076
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "2",
+          "n": 326,
+          "malignant": 155,
+          "fn_rate": 0.4967741935483871,
+          "fp_rate": 0.19883040935672514
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "3",
+          "n": 602,
+          "malignant": 225,
+          "fn_rate": 0.31555555555555553,
+          "fp_rate": 0.14323607427055704
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "4",
+          "n": 585,
+          "malignant": 242,
+          "fn_rate": 0.2975206611570248,
+          "fp_rate": 0.16034985422740525
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "5",
+          "n": 711,
+          "malignant": 364,
+          "fn_rate": 0.1401098901098901,
+          "fp_rate": 0.1873198847262248
+        }
+      ]
+    },
+    "test": {
+      "n_fp": 68,
+      "n_fn": 93,
+      "n": 641,
+      "rates": [
+        {
+          "subgroup": "abn_type",
+          "value": "both",
+          "n": 4,
+          "malignant": 4,
+          "fn_rate": 0.0,
+          "fp_rate": NaN
+        },
+        {
+          "subgroup": "abn_type",
+          "value": "calc",
+          "n": 280,
+          "malignant": 115,
+          "fn_rate": 0.46956521739130436,
+          "fp_rate": 0.1696969696969697
+        },
+        {
+          "subgroup": "abn_type",
+          "value": "mass",
+          "n": 357,
+          "malignant": 143,
+          "fn_rate": 0.2727272727272727,
+          "fp_rate": 0.18691588785046728
+        },
+        {
+          "subgroup": "view",
+          "value": "CC",
+          "n": 298,
+          "malignant": 120,
+          "fn_rate": 0.3416666666666667,
+          "fp_rate": 0.16853932584269662
+        },
+        {
+          "subgroup": "view",
+          "value": "MLO",
+          "n": 343,
+          "malignant": 142,
+          "fn_rate": 0.36619718309859156,
+          "fp_rate": 0.1890547263681592
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "0",
+          "n": 2,
+          "malignant": 2,
+          "fn_rate": 0.0,
+          "fp_rate": NaN
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "1",
+          "n": 65,
+          "malignant": 25,
+          "fn_rate": 0.24,
+          "fp_rate": 0.1
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "2",
+          "n": 260,
+          "malignant": 109,
+          "fn_rate": 0.27522935779816515,
+          "fp_rate": 0.1456953642384106
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "3",
+          "n": 201,
+          "malignant": 77,
+          "fn_rate": 0.4155844155844156,
+          "fp_rate": 0.18548387096774194
+        },
+        {
+          "subgroup": "breast_density",
+          "value": "4",
+          "n": 113,
+          "malignant": 49,
+          "fn_rate": 0.5102040816326531,
+          "fp_rate": 0.296875
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "0",
+          "n": 46,
+          "malignant": 9,
+          "fn_rate": 0.4444444444444444,
+          "fp_rate": 0.2702702702702703
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "1",
+          "n": 2,
+          "malignant": 2,
+          "fn_rate": 0.0,
+          "fp_rate": NaN
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "2",
+          "n": 60,
+          "malignant": 1,
+          "fn_rate": 0.0,
+          "fp_rate": 0.06779661016949153
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "3",
+          "n": 95,
+          "malignant": 20,
+          "fn_rate": 0.55,
+          "fp_rate": 0.14666666666666667
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "4",
+          "n": 333,
+          "malignant": 130,
+          "fn_rate": 0.5,
+          "fp_rate": 0.18719211822660098
+        },
+        {
+          "subgroup": "assessment_max",
+          "value": "5",
+          "n": 105,
+          "malignant": 100,
+          "fn_rate": 0.13,
+          "fp_rate": 1.0
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "1",
+          "n": 38,
+          "malignant": 15,
+          "fn_rate": 0.7333333333333333,
+          "fp_rate": 0.43478260869565216
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "2",
+          "n": 88,
+          "malignant": 40,
+          "fn_rate": 0.5,
+          "fp_rate": 0.14583333333333334
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "3",
+          "n": 187,
+          "malignant": 74,
+          "fn_rate": 0.44594594594594594,
+          "fp_rate": 0.1592920353982301
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "4",
+          "n": 145,
+          "malignant": 43,
+          "fn_rate": 0.3488372093023256,
+          "fp_rate": 0.14705882352941177
+        },
+        {
+          "subgroup": "subtlety_max",
+          "value": "5",
+          "n": 183,
+          "malignant": 90,
+          "fn_rate": 0.15555555555555556,
+          "fp_rate": 0.1935483870967742
+        }
+      ]
+    }
+  }
+}

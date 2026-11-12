@@ -1,0 +1,22 @@
+split,subgroup,value,n,n_pos,auc,ci_lo,ci_hi,flag
+"official test (641 images, 5-model ensemble)",abnormality type,both,4,4,,,,one class — no AUC
+"official test (641 images, 5-model ensemble)",abnormality type,calc,280,115,0.7930961791831357,0.7184642238196247,0.8571128168481966,
+"official test (641 images, 5-model ensemble)",abnormality type,mass,357,143,0.833050127442651,0.7738466299095812,0.8830399895610046,
+"official test (641 images, 5-model ensemble)",view,CC,298,120,0.8245786516853933,0.7728453195062595,0.8701975427481061,
+"official test (641 images, 5-model ensemble)",view,MLO,343,142,0.8097190105808983,0.765516671468957,0.8548720212268874,
+"official test (641 images, 5-model ensemble)",breast density,0,2,2,,,,one class — no AUC
+"official test (641 images, 5-model ensemble)",breast density,1,65,25,0.897,0.758647721454173,0.9917681590854966,
+"official test (641 images, 5-model ensemble)",breast density,2,260,109,0.8606233671547482,0.8029372633562243,0.9120194699952292,
+"official test (641 images, 5-model ensemble)",breast density,3,201,77,0.7817343946376203,0.6953974704886163,0.8594604754470093,
+"official test (641 images, 5-model ensemble)",breast density,4,113,49,0.6776147959183673,0.552456635515827,0.7931223249716554,
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),0,46,9,0.7057057057057057,0.3804945054945055,0.9692540792540792,small
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),1,2,2,,,,one class — no AUC
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),2,60,1,0.9830508474576272,0.9346442274154169,1.0,small
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),3,95,20,0.7926666666666666,0.6534832326546847,0.8928702731092437,
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),4,333,130,0.709700644183403,0.6360426486261672,0.7826709647462042,
+"official test (641 images, 5-model ensemble)",BI-RADS assessment (max),5,105,100,0.574,0.3247596153846154,0.7834073251942286,
+"official test (641 images, 5-model ensemble)",subtlety (max),1,38,15,0.48405797101449277,0.3076555023923445,0.6816141917293232,small
+"official test (641 images, 5-model ensemble)",subtlety (max),2,88,40,0.7635416666666668,0.6272404729135173,0.876362058080808,
+"official test (641 images, 5-model ensemble)",subtlety (max),3,187,74,0.7688352068883043,0.6783137529106034,0.8494572820722135,
+"official test (641 images, 5-model ensemble)",subtlety (max),4,145,43,0.8290013679890561,0.7361099677659311,0.9109948239016273,
+"official test (641 images, 5-model ensemble)",subtlety (max),5,183,90,0.8990442054958183,0.8373923035131906,0.9524957868127238,

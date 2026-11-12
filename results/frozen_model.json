@@ -1,0 +1,65 @@
+{
+  "exp": "s4_cv_s3_tta_hflip",
+  "train_hash": "1e9764457296",
+  "config": {
+    "name": "s4_cv_s3_tta_hflip",
+    "stage": "4",
+    "hypothesis": "Chosen configuration on all 5 folds; headline validation metric (PRD \u00a76).",
+    "parent": "s3_tta_hflip",
+    "backbone": "efficientnet_b3",
+    "image_size": [
+      1536,
+      1184
+    ],
+    "input": "cropped",
+    "init": "imagenet",
+    "pool": "avg",
+    "drop_rate": 0.3,
+    "loss": "bce",
+    "pos_weight": false,
+    "focal_gamma": 2.0,
+    "sampler": "none",
+    "aug": true,
+    "epochs": 30,
+    "patience": 8,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.01,
+    "warmup_epochs": 1.0,
+    "effective_batch": 16,
+    "max_batch": 64,
+    "ema": false,
+    "ema_decay": 0.999,
+    "compile": false,
+    "tta_hflip": true,
+    "seed": 42
+  },
+  "folds": {
+    "0": {
+      "path": "/content/drive/MyDrive/cbis-ddsm-mammo-classifier/checkpoints/efficientnet_b3_1e9764457296/fold0/best.pt",
+      "sha256": "68c44f5264a65df2a94a14d9011844cf8d288b8ef119d316d9466f65f49c90dc"
+    },
+    "1": {
+      "path": "/content/drive/MyDrive/cbis-ddsm-mammo-classifier/checkpoints/efficientnet_b3_1e9764457296/fold1/best.pt",
+      "sha256": "5a11ac30aefba574eabc898077e61c1d877cdf1fbcb37901a1da2e4172d03ef5"
+    },
+    "2": {
+      "path": "/content/drive/MyDrive/cbis-ddsm-mammo-classifier/checkpoints/efficientnet_b3_1e9764457296/fold2/best.pt",
+      "sha256": "6d384299d811d5c594ca9b031efe468b8cfa58feecfc1fde9bf34c0a31dde5d0"
+    },
+    "3": {
+      "path": "/content/drive/MyDrive/cbis-ddsm-mammo-classifier/checkpoints/efficientnet_b3_1e9764457296/fold3/best.pt",
+      "sha256": "1cdd5ae766b9261fd0b9bc8beb55a2b48f0c5944684f8c73d75c30bbfd7d3d8c"
+    },
+    "4": {
+      "path": "/content/drive/MyDrive/cbis-ddsm-mammo-classifier/checkpoints/efficientnet_b3_1e9764457296/fold4/best.pt",
+      "sha256": "8f56478fd7947d632a2a447b559a8c604292253d17b5c44d7f194f02a5861fd9"
+    }
+  },
+  "threshold": 0.5017023620340758,
+  "temperature": 1.2543051840557675,
+  "manifest_sha256": "e0c943a4e5c4133fdecd6143633cf8aa4a176d6bec93c00443bdaca9e1e1322b",
+  "folds_sha256": "47ae3deba2f37a4f253367bac70e980f736d527b807537b72e4f35ba232fde34",
+  "git_commit": "unknown",
+  "frozen_utc": "2026-11-12T17:33:50Z"
+}

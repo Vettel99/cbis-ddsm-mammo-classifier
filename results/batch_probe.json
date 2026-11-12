@@ -1,0 +1,10 @@
+{
+  "NVIDIA L4|resnet50|(672, 512)|avg|False": 64,
+  "NVIDIA L4|efficientnet_b3|(1152, 896)|avg|False": 12,
+  "NVIDIA L4|efficientnet_b3|(1152, 896)|avg|True": 12,
+  "NVIDIA L4|efficientnet_b3|(1536, 1184)|avg|False": 6,
+  "NVIDIA L4|efficientnet_b3|(1536, 1184)|gem|False": 6,
+  "NVIDIA L4|efficientnet_b3|(1536, 1184)|attn|False": 6,
+  "NVIDIA L4|efficientnet_b4|(1536, 1184)|avg|False": 4,
+  "NVIDIA L4|convnext_tiny|(1536, 1184)|avg|False": 8
+}

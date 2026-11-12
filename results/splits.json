@@ -1,0 +1,63 @@
+{
+  "cross_split_patients": 31,
+  "dropped_train_images": 64,
+  "dev_images": 2356,
+  "dev_patients": 1217,
+  "test_images": 641,
+  "n_folds": 5,
+  "cv_seed": 42,
+  "folds_sha256": "47ae3deba2f37a4f253367bac70e980f736d527b807537b72e4f35ba232fde34",
+  "manifest_sha256": "e0c943a4e5c4133fdecd6143633cf8aa4a176d6bec93c00443bdaca9e1e1322b",
+  "per_fold": [
+    {
+      "fold": 0,
+      "images": 460,
+      "patients": 244,
+      "malignant": 227,
+      "prevalence": 0.493,
+      "mass": 237,
+      "calc": 214,
+      "both": 9
+    },
+    {
+      "fold": 1,
+      "images": 500,
+      "patients": 247,
+      "malignant": 206,
+      "prevalence": 0.412,
+      "mass": 226,
+      "calc": 266,
+      "both": 8
+    },
+    {
+      "fold": 2,
+      "images": 469,
+      "patients": 246,
+      "malignant": 221,
+      "prevalence": 0.471,
+      "mass": 251,
+      "calc": 210,
+      "both": 8
+    },
+    {
+      "fold": 3,
+      "images": 457,
+      "patients": 236,
+      "malignant": 218,
+      "prevalence": 0.477,
+      "mass": 210,
+      "calc": 241,
+      "both": 6
+    },
+    {
+      "fold": 4,
+      "images": 470,
+      "patients": 244,
+      "malignant": 193,
+      "prevalence": 0.411,
+      "mass": 244,
+      "calc": 219,
+      "both": 7
+    }
+  ]
+}
