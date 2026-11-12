@@ -1,6 +1,6 @@
 # CBIS-DDSM Whole-Mammogram Malignancy Classifier
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GITHUB_USER/cbis-ddsm-mammo-classifier/blob/main/notebooks/cbis_ddsm_whole_image_classifier.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Vettel99/cbis-ddsm-mammo-classifier/blob/main/notebooks/cbis_ddsm_whole_image_classifier.ipynb)
 
 Single-view, whole-mammogram **benign vs malignant** classifier trained on CBIS-DDSM on one Colab A100 GPU,
 with patient-grouped validation and a single, locked evaluation on the official test split.

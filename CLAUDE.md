@@ -38,7 +38,7 @@ user asks, it may drive a Colab run in the browser pane (the user signs in, pick
 ## Status
 
 - Milestones 0–18 implemented (13–18 written 2026-11-11). Gate 1 approved 2026-11-10, pinned to
-  `GATE1_REVIEWED_MISMATCHES`. Gate 2 approved 2026-11-11. Gate 3 approved 2026-11-12 (`GATE3_PRE_TEST_APPROVED` and `FINAL_EVAL` are True; the test split has been evaluated, so `test_predictions.csv` is only ever re-scored). **Project complete; next: create the GitHub repo, set the badge's `GITHUB_USER`, push.**
+  `GATE1_REVIEWED_MISMATCHES`. Gate 2 approved 2026-11-11. Gate 3 approved 2026-11-12 (`GATE3_PRE_TEST_APPROVED` and `FINAL_EVAL` are True; the test split has been evaluated, so `test_predictions.csv` is only ever re-scored). **Project complete.** Published at https://github.com/Vettel99/cbis-ddsm-mammo-classifier (public).
 - Milestones 13–18:
   - The CV runs `FINAL = replace(BEST, name="s4_cv_…")`. Fold 0 is reused from the identical exp_hash.
   - The threshold (Youden) and the temperature are fitted on OOF only. `frozen_model.json` hashes the 5 fold `best.pt`
