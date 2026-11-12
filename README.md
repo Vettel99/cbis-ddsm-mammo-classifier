@@ -85,8 +85,9 @@ Produced by notebook milestones 4–5 (`results/counts_check.csv`); these are da
 1. Open the notebook in Colab with the badge above and pick a GPU runtime. An **A100** is fastest; the published results
    were produced on an **L4** (GPU-minutes for every run are logged in `results/experiments.csv`). On a
    non-A100 GPU the notebook prints a warning and carries on.
-2. Run all. The notebook mounts Drive, downloads the metadata CSVs from TCIA and the full-mammogram DICOMs (~95 GB)
-   from NCI Imaging Data Commons with `idc-index`, and caches everything to Drive.
+2. Run all. The notebook mounts Drive, downloads the metadata CSVs from TCIA and the full-mammogram DICOMs from NCI
+   Imaging Data Commons with `idc-index` (3,103 series, about 102.6 GB per the IDC v25 index: 81.5 GB train, 21.1 GB
+   test; test is fetched only when `FINAL_EVAL` is on), and caches the preprocessed images to Drive.
 3. It stops at each review gate; set the gate flag in the Config cell after reviewing and re-run.
 
 Data is **not** committed to this repository. A metadata-only check (milestones 0–5 without image download) runs on any
